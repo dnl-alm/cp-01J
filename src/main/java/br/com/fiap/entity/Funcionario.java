@@ -14,22 +14,26 @@ public abstract class Funcionario {
 
     @Id
     @Column(name="id_funcionario")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "funcionario")
+    @Descricao(descricao = "Aqui será armazenada a PK")
     private Integer id;
 
     @Column(name="nm_funcionario", nullable = false, length = 100)
+    @Descricao(descricao = "O nome do Funcionario Senior cadastrado")
     private String nome;
 
     @Column(name = "qt_horas", nullable = false)
+    @Descricao(descricao = "Horas trabalhadas pelo funcionario senior cadastrado")
     private Integer horasTrabalhadas;
 
     @Column(name = "vl_hora", nullable = false)
+    @Descricao(descricao = "Valor de uma hora trabalhada pelo funcionario senior cadastrado")
     private Double valorHoraTrabalhada;
 
     public Funcionario() {
     }
 
-    public Funcionario(int id, String nome, int horasTrabalhadas, double valorHoraTrabalhada) {
-        this.id = id;
+    public Funcionario(String nome, int horasTrabalhadas, double valorHoraTrabalhada) {
         this.nome = nome;
         this.horasTrabalhadas = horasTrabalhadas;
         this.valorHoraTrabalhada = valorHoraTrabalhada;

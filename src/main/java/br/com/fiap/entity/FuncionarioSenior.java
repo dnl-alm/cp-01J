@@ -12,8 +12,8 @@ public class FuncionarioSenior extends Funcionario {
     public FuncionarioSenior() {
     }
 
-    public FuncionarioSenior(int id, String nome, int horasTrabalhadas, double valorHoraTrabalhada) {
-        super(id, nome, horasTrabalhadas, valorHoraTrabalhada);
+    public FuncionarioSenior(String nome, int horasTrabalhadas, double valorHoraTrabalhada) {
+        super(nome, horasTrabalhadas, valorHoraTrabalhada);
     }
 
     @Override
