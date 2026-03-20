@@ -81,4 +81,6 @@ public abstract class Funcionario {
     public void setValorHoraTrabalhada(Double valorHoraTrabalhada) {
         this.valorHoraTrabalhada = valorHoraTrabalhada;
     }
+
+
 }
