@@ -44,6 +44,7 @@ public abstract class Funcionario {
     };
 
     public void imprimirInformacoes () {
+        System.out.println("Id: " + id);
         System.out.println("Nome: " + nome);
         System.out.println("Horas trabalhadas: " + horasTrabalhadas);
         System.out.println("Valor por hora: R$ " + valorHoraTrabalhada);

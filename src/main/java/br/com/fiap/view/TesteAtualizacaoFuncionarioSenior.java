@@ -22,12 +22,12 @@ public class TesteAtualizacaoFuncionarioSenior {
 
         try {
 
-            FuncionarioSenior funcionario = dao.buscarPorId(4);
+            FuncionarioSenior funcionario = dao.buscarPorId(23);
 
             System.out.println("ANTES DA ATUALIZAÇÃO:");
             funcionario.imprimirInformacoes();
 
-            funcionario.setNome("Daniel Atualizado");
+            funcionario.setNome("Silva");
             funcionario.setHorasTrabalhadas(200);
 
             em.getTransaction().begin();

@@ -30,6 +30,7 @@ public class FuncionarioSenior extends Funcionario {
 
     @Override
     public void imprimirInformacoes() {
+        System.out.println("Id: " + getId());
         System.out.println("Nome: " + getNome());
         System.out.println("Horas trabalhadas: " + getHorasTrabalhadas());
         System.out.println("Valor por hora: R$ " + getValorHoraTrabalhada());
