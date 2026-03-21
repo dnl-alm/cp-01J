@@ -15,6 +15,7 @@ import javax.persistence.Persistence;
 public class ViewFuncionarioSenior {
 
     public static void main(String[] args) {
+
         FuncionarioSenior funcionarioSenior = new FuncionarioSenior("abigail", 160, 500);
 
         EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
@@ -22,55 +23,82 @@ public class ViewFuncionarioSenior {
         EntityManager em = fabrica.createEntityManager();
 
         FuncionarioSeniorDao dao = new FuncionarioSeniorDaoImpl(em);
-        FuncionarioDao funcDao = new FuncionarioDaoImpl(em);
-        GeradorSQL geradorSQL = new GeradorSQL(funcDao);
+
+        GeradorSQL geradorSQL = new GeradorSQL();
 
         try {
+
+            geradorSQL.mostrarDescricoes(funcionarioSenior);
+
             //CREATE
-            em.persist(funcionarioSenior);
+            System.out.println("=== CREATE ===");
+
+            System.out.println(geradorSQL.gerarInsert(funcionarioSenior));
 
             em.getTransaction().begin();
+            dao.cadastrar(funcionarioSenior);
             em.getTransaction().commit();
 
             System.out.println("Funcionario Sênior cadastrado!\n");
-            geradorSQL.mostrarDados();
+            funcionarioSenior.imprimirInformacoes();
 
             //READ
+            System.out.println("\n=== READ ===");
+
+            System.out.println(geradorSQL.gerarSelect(funcionarioSenior));
+
             FuncionarioSenior f = dao.buscarPorId(funcionarioSenior.getId());
             f.imprimirInformacoes();
 
             //UPDATE
+            System.out.println("\n=== UPDATE ===");
+
             System.out.println("ANTES DA ATUALIZAÇÃO:");
             funcionarioSenior.imprimirInformacoes();
 
             funcionarioSenior.setNome("Silva");
             funcionarioSenior.setHorasTrabalhadas(200);
 
+            System.out.println(
+                    geradorSQL.gerarUpdate(
+                            funcionarioSenior,
+                            "ID = " + funcionarioSenior.getId()
+                    )
+            );
+
             em.getTransaction().begin();
-
             dao.atualizar(funcionarioSenior);
-
             em.getTransaction().commit();
 
             System.out.println("\nDEPOIS DA ATUALIZAÇÃO:");
             funcionarioSenior.imprimirInformacoes();
 
-            geradorSQL.mostrarDados();
-
             //DELETE
+            System.out.println("\n=== DELETE ===");
+
+            System.out.println(
+                    geradorSQL.gerarDelete(
+                            funcionarioSenior,
+                            "ID = " + funcionarioSenior.getId()
+                    )
+            );
+
             System.out.println("\nRemovendo funcionário: ");
             funcionarioSenior.imprimirInformacoes();
-            em.remove(funcionarioSenior);
 
             em.getTransaction().begin();
+            dao.remover(funcionarioSenior.getId());
             em.getTransaction().commit();
 
             System.out.println("Funcionario Senior removido!\n");
 
-            geradorSQL.mostrarDados();
-
         } catch (IdNaoEncontradoException e) {
             throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            em.close();
+            fabrica.close();
         }
 
     }

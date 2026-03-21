@@ -15,19 +15,19 @@ public class Funcionario {
     @Id
     @Column(name="id_funcionario")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "funcionario")
-    @Descricao(descricao = "Aqui será armazenada a PK")
+    @Descricao(descricao = "Identificador do Funcionario")
     private Integer id;
 
     @Column(name="nm_funcionario", nullable = false, length = 100)
-    @Descricao(descricao = "O nome do Funcionario cadastrado")
+    @Descricao(descricao = "Nome do Fucnionario")
     private String nome;
 
     @Column(name = "qt_horas", nullable = false)
-    @Descricao(descricao = "Horas trabalhadas pelo funcionario cadastrado")
+    @Descricao(descricao = "Horas trabalhadas")
     private Integer horasTrabalhadas;
 
     @Column(name = "vl_hora", nullable = false)
-    @Descricao(descricao = "Valor de uma hora trabalhada pelo funcionario cadastrado")
+    @Descricao(descricao = "Valor de uma hora ")
     private Double valorHoraTrabalhada;
 
     public Funcionario() {
@@ -82,6 +82,5 @@ public class Funcionario {
     public void setValorHoraTrabalhada(Double valorHoraTrabalhada) {
         this.valorHoraTrabalhada = valorHoraTrabalhada;
     }
-
 
 }

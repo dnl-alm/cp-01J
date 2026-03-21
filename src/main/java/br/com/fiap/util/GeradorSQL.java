@@ -15,13 +15,6 @@ import java.util.List;
 
 public class GeradorSQL {
 
-
-    private FuncionarioDao dao;
-
-    public GeradorSQL(FuncionarioDao dao) {
-        this.dao = dao;
-    }
-
     private Table getTabela(Class<?> clazz) {
 
         Class<?> classeAtual = clazz;
@@ -62,6 +55,7 @@ public class GeradorSQL {
         List<Field> campos = getTodosCampos(clazz);
 
         for (Field campo : campos) {
+
             if (campo.isAnnotationPresent(Column.class)) {
                 Column col = campo.getAnnotation(Column.class);
                 sql.append(col.name()).append(", ");
@@ -69,9 +63,79 @@ public class GeradorSQL {
         }
 
         sql.delete(sql.length() - 2, sql.length());
+
         sql.append(" FROM ").append(tabela.name());
 
         return sql.toString();
+    }
+
+    public String gerarInsert(Object obj) {
+
+        Class<?> clazz = obj.getClass();
+
+        Table tabela = getTabela(clazz);
+
+        StringBuilder colunas = new StringBuilder();
+        StringBuilder valores = new StringBuilder();
+
+        List<Field> campos = getTodosCampos(clazz);
+
+        for (Field campo : campos) {
+
+            if (campo.isAnnotationPresent(Column.class)) {
+
+                Column col = campo.getAnnotation(Column.class);
+
+                colunas.append(col.name()).append(", ");
+
+                valores.append("?").append(", ");
+            }
+        }
+
+        colunas.delete(colunas.length() - 2, colunas.length());
+        valores.delete(valores.length() - 2, valores.length());
+
+        return "INSERT INTO " + tabela.name() +
+                " (" + colunas + ") VALUES (" + valores + ")";
+    }
+
+    public String gerarUpdate(Object obj, String where) {
+
+        Class<?> clazz = obj.getClass();
+
+        Table tabela = getTabela(clazz);
+
+        StringBuilder sql = new StringBuilder("UPDATE ");
+
+        sql.append(tabela.name()).append(" SET ");
+
+        List<Field> campos = getTodosCampos(clazz);
+
+        for (Field campo : campos) {
+
+            if (campo.isAnnotationPresent(Column.class)) {
+
+                Column col = campo.getAnnotation(Column.class);
+
+                sql.append(col.name()).append(" = ?, ");
+            }
+        }
+
+        sql.delete(sql.length() - 2, sql.length());
+
+        sql.append(" WHERE ").append(where);
+
+        return sql.toString();
+    }
+
+    public String gerarDelete(Object obj, String where) {
+
+        Class<?> clazz = obj.getClass();
+
+        Table tabela = getTabela(clazz);
+
+        return "DELETE FROM " + tabela.name() +
+                " WHERE " + where;
     }
 
     public void mostrarDescricoes(Object obj) {
@@ -88,53 +152,12 @@ public class GeradorSQL {
         List<Field> campos = getTodosCampos(clazz);
 
         for (Field campo : campos) {
+
             if (campo.isAnnotationPresent(Descricao.class)) {
                 Descricao d = campo.getAnnotation(Descricao.class);
                 System.out.println(campo.getName() + ": " + d.descricao());
             }
         }
-    }
-
-    public void mostrarDados() {
-
-        List<Funcionario> lista = dao.buscarTodos();
-
-        if (lista.isEmpty()) {
-            System.out.println("\nNenhum dado encontrado.");
-            return;
-        }
-
-        System.out.println("\n=== TABELA FUNCIONARIO ===");
-
-        List<Field> campos = getTodosCampos(lista.get(0).getClass());
-
-        for (Funcionario f : lista) {
-            for (Field campo : campos) {
-                try {
-                    if (campo.isAnnotationPresent(Column.class)) {
-                        campo.setAccessible(true);
-                        System.out.print(campo.get(f) + " | ");
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            System.out.println();
-        }
-    }
-
-    public void executarTudo() {
-
-        Funcionario funcionarios = new Funcionario();
-
-        String sql = gerarSelect(funcionarios);
-
-        System.out.println("=== SQL GERADO ===");
-        System.out.println(sql);
-
-        mostrarDescricoes(funcionarios);
-
-        mostrarDados();
     }
 
 }

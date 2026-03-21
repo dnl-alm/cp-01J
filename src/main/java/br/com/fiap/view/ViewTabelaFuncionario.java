@@ -17,9 +17,7 @@ public class ViewTabelaFuncionario {
 
         FuncionarioDao dao = new FuncionarioDaoImpl(em);
 
-        GeradorSQL gerador = new GeradorSQL(dao);
 
-        gerador.executarTudo();
 
     }
 

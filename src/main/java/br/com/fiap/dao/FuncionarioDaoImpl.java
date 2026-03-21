@@ -1,7 +1,6 @@
 package br.com.fiap.dao;
 
 import br.com.fiap.entity.Funcionario;
-import br.com.fiap.entity.FuncionarioSenior;
 import br.com.fiap.exception.CommitException;
 import br.com.fiap.exception.IdNaoEncontradoException;
 
@@ -26,15 +25,15 @@ public class FuncionarioDaoImpl implements FuncionarioDao {
     }
 
     public void remover(int id) throws IdNaoEncontradoException {
-        FuncionarioSenior funcionarioSenior = buscarPorId(id);
-        em.remove(funcionarioSenior);
+        Funcionario funcionario = buscarPorId(id);
+        em.remove(funcionario);
     }
 
-    public FuncionarioSenior buscarPorId(int id) throws IdNaoEncontradoException {
-        FuncionarioSenior funcionarioSenior = em.find(FuncionarioSenior.class, id);
-        if (funcionarioSenior == null)
+    public Funcionario buscarPorId(int id) throws IdNaoEncontradoException {
+        Funcionario funcionario = em.find(Funcionario.class, id);
+        if (funcionario == null)
             throw new IdNaoEncontradoException("Funcionario nao encontrado");
-        return funcionarioSenior;
+        return funcionario;
     }
 
     public List<Funcionario> buscarTodos() {
