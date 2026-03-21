@@ -1,7 +1,5 @@
 package br.com.fiap.view;
 
-import br.com.fiap.dao.FuncionarioDao;
-import br.com.fiap.dao.FuncionarioDaoImpl;
 import br.com.fiap.dao.FuncionarioSeniorDao;
 import br.com.fiap.dao.FuncionarioSeniorDaoImpl;
 import br.com.fiap.entity.FuncionarioSenior;
