@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TIPO_FUNC")
 @Descricao(descricao = "Tabela de Funcionários")
-public abstract class Funcionario {
+public class Funcionario {
 
     @Id
     @Column(name="id_funcionario")
@@ -19,15 +19,15 @@ public abstract class Funcionario {
     private Integer id;
 
     @Column(name="nm_funcionario", nullable = false, length = 100)
-    @Descricao(descricao = "O nome do Funcionario Senior cadastrado")
+    @Descricao(descricao = "O nome do Funcionario cadastrado")
     private String nome;
 
     @Column(name = "qt_horas", nullable = false)
-    @Descricao(descricao = "Horas trabalhadas pelo funcionario senior cadastrado")
+    @Descricao(descricao = "Horas trabalhadas pelo funcionario cadastrado")
     private Integer horasTrabalhadas;
 
     @Column(name = "vl_hora", nullable = false)
-    @Descricao(descricao = "Valor de uma hora trabalhada pelo funcionario senior cadastrado")
+    @Descricao(descricao = "Valor de uma hora trabalhada pelo funcionario cadastrado")
     private Double valorHoraTrabalhada;
 
     public Funcionario() {

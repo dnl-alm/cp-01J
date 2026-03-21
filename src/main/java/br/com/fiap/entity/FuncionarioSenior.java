@@ -35,6 +35,6 @@ public class FuncionarioSenior extends Funcionario {
         System.out.println("Horas trabalhadas: " + getHorasTrabalhadas());
         System.out.println("Valor por hora: R$ " + getValorHoraTrabalhada());
         System.out.println("Salário final: R$ " + calcularSalario());
-        System.out.println("Valor do bônus a cada 15 horas trabalhadas: " + this.valorBonus);
+        System.out.println("Valor do bônus a cada 15 horas trabalhadas: " + this.valorBonus + "\n");
     }
 }

@@ -28,7 +28,7 @@ public class TesteBuscaFuncionarioSenior {
 
         try {
             FuncionarioSenior funcId2 = funcionarioSeniorDao.buscarPorId(24);
-            GeradorSQL.gerarSelect(funcId2);
+            //GeradorSQL.gerarSelect(funcId2);
             System.out.println("Buscando pelo Id: " + funcId2.getId());
             funcId2.imprimirInformacoes();
         } catch (IdNaoEncontradoException e) {
