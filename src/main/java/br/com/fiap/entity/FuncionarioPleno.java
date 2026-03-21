@@ -1,8 +1,10 @@
 package br.com.fiap.entity;
 
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
-@DiscriminatorValue("JUNIOR")
+@Entity
+@DiscriminatorValue("PLENO")
 public class FuncionarioPleno extends Funcionario {
 
     public FuncionarioPleno() {
