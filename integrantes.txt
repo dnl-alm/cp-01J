@@ -1,7 +1,7 @@
-Nomes e RMs:
+Integrantes:
     Daniel Fonseca de Almeida RM: 563045
     Pedro Fonseca de Almeida RM: 563466
-    Guilherme Cintra RM:
+    Guilherme Batista Cintra RM: 562850
 
 Link GitHub:
     https://github.com/dnl-alm/cp-01J
