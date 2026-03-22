@@ -125,16 +125,21 @@ Foram realizados testes de CRUD dentro de suas respectivas classes:
 ![img.png](imagens/SelectCreateSenior.png)
 
 ### READ
-
+![img.png](imagens/ReadSenior.png)
+![img.png](imagens/SelectReadSenior.png)
 
 ### UPDATE
-
+![img.png](imagens/UpdateSenior.png)
+![img.png](imagens/SelectUpdateSenior.png)
 
 ### DELETE
-
+![img.png](imagens/DeleteSenior.png)
+![img.png](imagens/SelectDeleteSenior.png)
 
 ### Execução View
-
+![img.png](imagens/Print1ViewSenior.png)
+![img.png](imagens/Print2ViewSenior.png)
+![img.png](imagens/Print3ViewSenior.png)
 
 ---
 

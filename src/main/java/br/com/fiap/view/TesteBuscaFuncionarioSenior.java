@@ -19,18 +19,13 @@ public class TesteBuscaFuncionarioSenior {
         EntityManager em = fabrica.createEntityManager();
 
         FuncionarioSeniorDao funcionarioSeniorDao = new FuncionarioSeniorDaoImpl(em);
-
-        List<FuncionarioSenior> fsList = funcionarioSeniorDao.buscarTodos();
-
-        for (FuncionarioSenior f : fsList) {
-            System.out.println(f.getNome());
-        }
+        GeradorSQL geradorSQL = new GeradorSQL();
 
         try {
-            FuncionarioSenior funcId2 = funcionarioSeniorDao.buscarPorId(24);
-            //GeradorSQL.gerarSelect(funcId2);
-            System.out.println("Buscando pelo Id: " + funcId2.getId());
-            funcId2.imprimirInformacoes();
+            FuncionarioSenior funcId42 = funcionarioSeniorDao.buscarPorId(42);
+            System.out.println(geradorSQL.gerarSelect(funcId42));
+            System.out.println("Buscando pelo Id: " + funcId42.getId());
+            funcId42.imprimirInformacoes();
         } catch (IdNaoEncontradoException e) {
             throw new RuntimeException(e);
         }
