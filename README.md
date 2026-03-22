@@ -23,7 +23,7 @@ O sistema é dividido nas seguintes camadas:
 - **DAO**: Responsável pelas operações no banco de dados
 - **View**: Classes de execução/teste do sistema
 - **Util**: Classe GeradorSQL responsável pela geração dinâmica de SQL
-- **Annotations**: Anotações personalizadas (@Descricao, @Coluna, etc.)
+- **Annotations**: Anotações personalizadas
 
 ## Modelagem
 
@@ -114,18 +114,47 @@ Foram realizados testes de CRUD dentro de suas respectivas classes:
   - SELECT geral
   - Exibição formatada em tabela
 
- ## Evidências de Execução
+## Evidências de Execução
 
- ### CREATE
+---
+
+## 1. Funcionário Sênior (CRUD Completo)
+
+### CREATE
+![img.png](imagens/CreateSenior.png)
+![img.png](imagens/SelectCreateSenior.png)
+
+### READ
 
 
- ### READ
+### UPDATE
 
 
- ### UPDATE
+### DELETE
 
 
- ### DELETE
+### Execução View
+
+
+---
+
+## 2. Funcionário Pleno
+
+### Execução View
+
+
+---
+
+## 3. Funcionário Júnior
+
+### Execução View
+
+
+---
+
+## 4. Visualização Geral da Tabela
+
+### SELECT Geral (ViewTabelaFuncionario)
 
 
 ## Como Executar

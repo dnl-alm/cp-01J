@@ -13,7 +13,7 @@ public class TesteRemoverFuncionarioSenior {
 
         EntityManager em = fabrica.createEntityManager();
 
-        FuncionarioSenior funcionarioSenior = em.find(FuncionarioSenior.class, 2);
+        FuncionarioSenior funcionarioSenior = em.find(FuncionarioSenior.class, 41);
         System.out.println("Informações do funcionário removido: ");
         funcionarioSenior.imprimirInformacoes();
 
