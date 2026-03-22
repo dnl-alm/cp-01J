@@ -146,7 +146,9 @@ Foram realizados testes de CRUD dentro de suas respectivas classes:
 ## 2. Funcionário Pleno
 
 ### Execução View
-
+![img.png](imagens/Print1ViewPleno.png)
+![img.png](imagens/Print2ViewPleno.png)
+![img.png](imagens/Print3ViewPleno.png)
 
 ---
 

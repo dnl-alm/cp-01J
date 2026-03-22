@@ -14,7 +14,7 @@ import javax.persistence.Persistence;
 public class ViewFuncionarioPleno {
     public static void main(String[] args) {
 
-        FuncionarioPleno funcionarioPleno = new FuncionarioPleno("Abigail", 160, 500);
+        FuncionarioPleno funcionarioPleno = new FuncionarioPleno("ViewFuncionarioPleno", 160, 200);
 
         EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
         EntityManager em = fabrica.createEntityManager();
