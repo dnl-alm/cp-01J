@@ -155,7 +155,9 @@ Foram realizados testes de CRUD dentro de suas respectivas classes:
 ## 3. Funcionário Júnior
 
 ### Execução View
-
+![img.png](imagens/Print1ViewJunior.png)
+![img.png](imagens/Print2ViewJunior.png)
+![img.png](imagens/Print3ViewJunior.png)
 
 ---
 

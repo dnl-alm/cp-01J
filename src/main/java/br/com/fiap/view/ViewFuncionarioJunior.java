@@ -14,7 +14,7 @@ public class ViewFuncionarioJunior {
 
     public static void main(String[] args) {
 
-        FuncionarioJunior funcionarioJunior = new FuncionarioJunior("junior", 160, 500);
+        FuncionarioJunior funcionarioJunior = new FuncionarioJunior("ViewFuncionarioJunior", 160, 100);
 
         EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
 
